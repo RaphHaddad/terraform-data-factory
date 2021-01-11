@@ -33,6 +33,29 @@ $ az account list # Get list of available azure subscriptions
 $ az account set -s a-guid
 ```
 
+### Validate the template using `terraform plan`
+
+Creates a plan and validates the template
+
+```cmd
+$ terraform plan
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+...
+...
+...
+```
+
+### Provision the Infrastructure on Azure
+
+```cmd
+$ terraform apply
+Apply complete!
+```
+
 ## TODO
 
 1. Create a blank terraform file with a storage account
@@ -40,3 +63,4 @@ $ az account set -s a-guid
 1. Rename the storage account
 1. Set Up Azure DevOps build
 1. Parameterise resource group name
+1. Ensure Terraform apply fails in CI if invalid tf
