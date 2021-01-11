@@ -52,7 +52,7 @@ Terraform will perform the following actions:
 ### Provision the Infrastructure on Azure
 
 ```cmd
-$ terraform apply
+$ terraform apply -auto-approve
 Apply complete!
 ```
 
