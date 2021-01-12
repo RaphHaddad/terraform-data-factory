@@ -33,6 +33,25 @@ $ az account list # Get list of available azure subscriptions
 $ az account set -s a-guid
 ```
 
+### Initialise the backend
+
+Terraform needs a backend where it will track state. If it is not configured
+it will default to `local` in the below example, it is using Azure Storage.
+
+The storage account and container must be previously created.
+
+```cmd
+$ terraform init \ 
+    -backend-config="resource_group_name=terraform-state" \
+    -backend-config="storage_account_name=terraformstatef0fd47" \
+    -backend-config="container_name=terraform-state-files" \
+    -backend-config="key=data-factory.tfstate"
+Initializing the backend...
+
+Successfully configured the backend "azurerm"! Terraform will automatically
+use this backend unless the backend configuration changes.
+```
+
 ### Validate the template using `terraform plan`
 
 Creates a plan and validates the template
@@ -59,7 +78,7 @@ Apply complete!
 ## TODO
 
 1. ✅ Create a blank terraform file with a storage account
-1. Use remote state
+1. ✅ Use remote state
 1. Rename the storage account
 1. Set Up Azure DevOps build
 1. Parameterise resource group name
