@@ -58,7 +58,7 @@ Apply complete!
 
 ## TODO
 
-1. Create a blank terraform file with a storage account
+1. ✅ Create a blank terraform file with a storage account
 1. Use remote state
 1. Rename the storage account
 1. Set Up Azure DevOps build

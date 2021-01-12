@@ -1,5 +1,5 @@
-provider "azurerm" {
-  features {}
+resource "random_id" "uniqufier" {
+  byte_length = 8
 }
 
 resource "azurerm_resource_group" "rg" {
@@ -7,8 +7,17 @@ resource "azurerm_resource_group" "rg" {
   location = "australiaeast"
 }
 
-resource "random_id" "uniqufier" {
-  byte_length = 8
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "terraform-state"
+    storage_account_name = "terraform-state${azurerm_resource_group.rg.name}"
+    container_name       = "tfstate.${azurerm_resource_group.rg.name}"
+    key                  = "terraform.${azurerm_resource_group.rg.name}.${random_id.uniqufier.dec}.tfstate"
+  }
+}
+
+provider "azurerm" {
+  features {}
 }
 
 resource "azurerm_storage_account" "main" {
