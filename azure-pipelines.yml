@@ -7,7 +7,7 @@ pool:
 stages:
 - stage: Validate
   jobs:
-  - job: 'Validate Template'
+  - job: Validate
     steps:
     - task: CmdLine@2
       inputs:
