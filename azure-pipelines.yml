@@ -5,6 +5,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 stages:
+- stage: Validate Template
+  jobs:
+  - job: Validate Template
+    steps:
+    - task: CmdLine@2
+      inputs:
+        script: 'install terraform here'
+
 - stage: Development
   jobs:
   - job: Deploy
