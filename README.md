@@ -79,10 +79,10 @@ Apply complete!
 
 1. ✅ Create a blank terraform file with a storage account
 1. ✅ Use remote state
-1. Rename the storage account
+1. ❌ Rename the storage account - won't do. Azure doesn't allow this anyway
 1. Set Up Azure DevOps build
 1. Parameterise resource group name
-1. Ensure Terraform apply fails in CI if invalid tf
+1. Ensure Terraform apply fails in CI if invalid `terraform plan` is invalid
 
 ## Notes
 
