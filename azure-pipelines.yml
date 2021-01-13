@@ -5,9 +5,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 stages:
-- stage: Validate Template
+- stage: 'Validate Template'
   jobs:
-  - job: Validate Template
+  - job: 'Validate Template'
     steps:
     - task: CmdLine@2
       inputs:
