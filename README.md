@@ -83,3 +83,12 @@ Apply complete!
 1. Set Up Azure DevOps build
 1. Parameterise resource group name
 1. Ensure Terraform apply fails in CI if invalid tf
+
+## Notes
+
+- Terraform needs state, therefore, the Azure storage account and container
+where Terraform stores the file need to be created prior to running
+`terraform apply`.
+- Terraform blocks provisioning into resource group. There's a one-to-one mapping
+of state and the actual resources. This means that if someone edits something
+manually, it needs to be reimported into Terraform.
