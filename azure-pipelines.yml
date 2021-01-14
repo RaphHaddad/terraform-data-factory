@@ -15,11 +15,15 @@ stages:
 
 - stage: Development
   jobs:
-  - job: Deploy
-    steps:
-    - task: CmdLine@2
-      inputs:
-        script: 'echo hello world'
+  - deployment: deploy
+    environment: Development
+    strategy:
+     runOnce:
+      deploy:
+        steps:
+        - task: CmdLine@2
+          inputs:
+            script: 'echo hello world'
 
 - stage: Production
   jobs:
