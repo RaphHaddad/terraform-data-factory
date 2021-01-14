@@ -9,9 +9,18 @@ stages:
   jobs:
   - job: Validate
     steps:
-    - task: CmdLine@2
+    - task: TerraformInstaller@0
+      displayName: 'Install Terraform'
       inputs:
-        script: 'echo install terraform here'
+        terraformVersion: '0.12.3'
+    - task: CmdLine@2
+      displayName: 'Initialise terraform with local backend'
+      inputs:
+        script: 'terraform init'
+    - task: CmdLine@2
+      displayName: 'Validate Terraform templates via plan'
+      inputs:
+        script 'terraform plan'
 
 - stage: Development
   jobs:
