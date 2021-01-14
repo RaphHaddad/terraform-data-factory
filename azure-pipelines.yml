@@ -20,7 +20,7 @@ stages:
     - task: CmdLine@2
       displayName: 'Validate Terraform templates via plan'
       inputs:
-        script 'terraform plan'
+        script: 'terraform plan'
 
 - stage: Development
   jobs:
