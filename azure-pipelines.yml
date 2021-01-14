@@ -11,7 +11,7 @@ stages:
     steps:
     - task: CmdLine@2
       inputs:
-        script: 'install terraform here'
+        script: 'echo install terraform here'
 
 - stage: Development
   jobs:
