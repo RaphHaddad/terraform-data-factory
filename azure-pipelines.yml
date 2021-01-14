@@ -16,7 +16,7 @@ stages:
     - task: CmdLine@2
       displayName: 'Initialise terraform with local backend'
       inputs:
-        script: 'terraform init'
+        script: 'terraform init backend=false'
     - task: CmdLine@2
       displayName: 'Validate Terraform templates via plan'
       inputs:
