@@ -11,7 +11,8 @@ def execute_az_command(command):
     subprocess.run(to_be_executed.split(' '))
 
 def main():
-    execute_az_command("group exists --name data-factory")
+    resource_group = "data-factory"
+    execute_az_command("group exists --name " + resource_group)
     print('main')
 
 main()
