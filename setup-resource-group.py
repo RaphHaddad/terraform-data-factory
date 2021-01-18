@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import subprocess, json
+import subprocess, json, argparse
 
 class print_indicator:
     HEADER = '\033[95m'
@@ -31,8 +31,17 @@ def does_resource_group_exist(resource_group):
     az_output = execute_az_command("group exists --name " + resource_group)
     return az_output == "true\n"
 
+def parse_arguments():
+    parser = argparse.ArgumentParser("Ensure resource group is created")
+    parser.add_argument('--resource-group-name', '-rg',
+                        type=str,
+                        help="Resource Group Name",
+                        required=True)
+    return parser.parse_args()
+
 def main():
-    resource_group = "data-factory-4"
+    arguments = parse_arguments()
+    resource_group = arguments.resource_group_names
     green_colour = "\033[92m"
     resource_group_exists = does_resource_group_exist(resource_group)
     if resource_group_exists:
